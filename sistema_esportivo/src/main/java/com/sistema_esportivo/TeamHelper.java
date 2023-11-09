@@ -9,14 +9,19 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class TeamHelper{
 
-    private final ObjectMapper mapper = new ObjectMapper();
+    private static final ObjectMapper mapper = new ObjectMapper();
 
-    public List<Team> TeamsJsonToList(String json){
+    private static List<Team> teamsJsonToList(String json){
         try{
-            JsonNode jsonArray = mapper.readTree(json); 
             List<Team> teamList = new ArrayList<>(); 
-            for(JsonNode element : jsonArray){
-                Team team = mapper.treeToValue(element, Team.class); 
+
+            JsonNode jsonArray = mapper.readTree(json);
+            JsonNode dataArray = jsonArray.get("data");  
+
+            for(JsonNode element : dataArray){
+                // System.out.println(element);
+                String text = element.toString(); 
+                Team team = mapper.readValue(text, Team.class); 
                 teamList.add(team); 
             }
 
@@ -27,5 +32,14 @@ public class TeamHelper{
         }
         return Collections.emptyList(); 
     }
-    
+
+    public static List<Team> getAllTeams(){
+        JsonHelper jsonHelper = new JsonHelper(); 
+
+        String json = jsonHelper.JsonFileToString("sistema_esportivo/src/main/resources/todasAsSelecoes.json"); 
+
+        List<Team> teams = teamsJsonToList(json); 
+        System.out.println(teams);
+        return teams;
+    }
 }
