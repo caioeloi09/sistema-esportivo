@@ -34,9 +34,8 @@ public class TeamHelper{
     }
 
     public static List<Team> getAllTeams(){
-        JsonHelper jsonHelper = new JsonHelper(); 
 
-        String json = jsonHelper.JsonFileToString("sistema_esportivo/src/main/resources/todasAsSelecoes.json"); 
+        String json = JsonHelper.JsonFileToString("sistema_esportivo/src/main/resources/todasAsSelecoes.json"); 
 
         List<Team> teams = teamsJsonToList(json); 
         System.out.println(teams);

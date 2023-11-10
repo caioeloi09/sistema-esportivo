@@ -6,7 +6,7 @@ import java.nio.file.Paths;
 
 public class JsonHelper {
     
-    public String JsonFileToString(String filePath){
+    public static String JsonFileToString(String filePath){
         try{
             String jsonContent = new String(Files.readAllBytes(Paths.get(filePath))); 
             return jsonContent; 
