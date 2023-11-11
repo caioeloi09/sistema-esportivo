@@ -17,25 +17,23 @@ public class MatchHelper {
 
             for (JsonNode element : matchesArray) {
 
-                String home = element.get("home_name").asText();
-                String away = element.get("away_name").asText();
-                String score = element.get("score").asText(); 
+                String home_name = element.get("home_name").asText();
+                String away_name = element.get("away_name").asText();
+                String score = element.get("score").asText();
 
-                System.out.println(home + away + score); 
+                Team home = TeamHelper.getTeamByName(home_name);
+                Team away = TeamHelper.getTeamByName(away_name);
 
-                // TO DO
-                // Transformar a string do time em um objeto do tipo Team
-                
-                // Match match = new Match(); 
-                // System.out.println(match);
+                Match match = new Match(home, away, score);
+                matches.add(match); 
             }
-
+            
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Não foi possível ler o arquivo de partidas");
         }
     }
-
+    
     public static List<Match> getAllMatches() {
         String json = JsonHelper.JsonFileToString("sistema_esportivo/src/main/resources/paginaJogos1.json");
         matchsJsonToList(json);

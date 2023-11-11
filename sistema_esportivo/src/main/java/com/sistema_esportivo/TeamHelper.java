@@ -10,10 +10,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 public class TeamHelper{
 
     private static final ObjectMapper mapper = new ObjectMapper();
+    private static List<Team> teamList = new ArrayList<>(); 
 
     private static List<Team> teamsJsonToList(String json){
         try{
-            List<Team> teamList = new ArrayList<>(); 
 
             JsonNode jsonArray = mapper.readTree(json);
             JsonNode dataArray = jsonArray.get("data");  
@@ -38,7 +38,17 @@ public class TeamHelper{
         String json = JsonHelper.JsonFileToString("sistema_esportivo/src/main/resources/todasAsSelecoes.json"); 
 
         List<Team> teams = teamsJsonToList(json); 
-        System.out.println(teams);
+        // System.out.println(teams);
         return teams;
+    }
+
+    public static Team getTeamByName(String name){
+        for(Team team : teamList){
+            if(team.getName().equals(name)){
+                return team; 
+            }
+        }
+        System.out.println("Time não encontrado"); 
+        return null;
     }
 }
