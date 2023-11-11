@@ -11,6 +11,13 @@ public class Match {
         this.away_team = away; 
         this.score = score; 
     }
+
+    @Override
+    public String toString(){
+        return "Informações da Partida:\n" + "Time da casa: " + home_team.getName() + 
+        "\nTime Visitante: " + away_team.getName() + 
+        "\nPlacar Final: " + this.score; 
+    }
     
     public Team getHomeTeam(){
         return this.home_team; 

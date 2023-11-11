@@ -19,6 +19,11 @@ public class Team{
         this.location = location;  
     }
     
+    @Override
+    public String toString(){
+        return "Nome do time: " + this.name + "\nEstádio: " + this.stadium + "\n";
+    }
+
     public String getId(){
         return this.id; 
     }
