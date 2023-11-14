@@ -8,7 +8,9 @@ public class Main{
 
     public static void main(String[] args){
 
-        TeamHelper.getAllTeams(); 
-        MatchHelper.getAllMatches(); 
+        TeamHelper.loadAllTeams(); 
+        MatchHelper.loadAllMatches(); 
+        StandingsHelper.loadStandings();
+        MenuScreens.initialMenu();
     }
 }

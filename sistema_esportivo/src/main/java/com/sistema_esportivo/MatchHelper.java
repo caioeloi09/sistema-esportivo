@@ -1,5 +1,7 @@
 package com.sistema_esportivo;
 
+import static com.sistema_esportivo.IOMethods.*;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,9 +36,15 @@ public class MatchHelper {
         }
     }
     
-    public static List<Match> getAllMatches() {
+    public static void loadAllMatches() {
         String json = JsonHelper.JsonFileToString("sistema_esportivo/src/main/resources/paginaJogos1.json");
         matchsJsonToList(json);
-        return matches;
+    }
+
+    public static void printAllMatches(){
+        for(Match match : matches){
+            print(match.toString());
+            printLine(); 
+        }
     }
 }

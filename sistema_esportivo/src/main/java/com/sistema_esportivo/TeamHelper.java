@@ -7,12 +7,14 @@ import java.util.List;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import static com.sistema_esportivo.IOMethods.*;
+
 public class TeamHelper{
 
     private static final ObjectMapper mapper = new ObjectMapper();
     private static List<Team> teamList = new ArrayList<>(); 
 
-    private static List<Team> teamsJsonToList(String json){
+    private static void teamsJsonToList(String json){
         try{
 
             JsonNode jsonArray = mapper.readTree(json);
@@ -25,21 +27,16 @@ public class TeamHelper{
                 teamList.add(team); 
             }
 
-            return teamList; 
 
         }catch(Exception e){
             e.printStackTrace();
         }
-        return Collections.emptyList(); 
     }
 
-    public static List<Team> getAllTeams(){
+    public static void loadAllTeams(){
 
         String json = JsonHelper.JsonFileToString("sistema_esportivo/src/main/resources/todasAsSelecoes.json"); 
-
-        List<Team> teams = teamsJsonToList(json); 
-        // System.out.println(teams);
-        return teams;
+        teamsJsonToList(json); 
     }
 
     public static Team getTeamByName(String name){
@@ -50,5 +47,11 @@ public class TeamHelper{
         }
         System.out.println("Time não encontrado"); 
         return null;
+    }
+
+    public static void printAllTeams(){
+        for(Team team : teamList){
+            print(team.toString());
+        }
     }
 }

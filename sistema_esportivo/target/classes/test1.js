@@ -1,7 +1,7 @@
 // Define the URL of the REST API you want to request
 // Pesquisa o historico de todos os jogos da copa de 2022
 // BTW recomendo usar o postman, alguns requests bugam quando usamos aqui n sei pq!
-const apiUrl = 'http://livescore-api.com/api-client/scores/history.json?key=ILHc6lLwJGDvNgvn&secret=iATp9rDeujFXzLghwYuCkf93WMyJ337m&from=2022-01-01&to=2022-12-31&competition_id=362';
+const apiUrl = 'https://livescore-api.com/api-client/competitions/standings.json?competition_id=362&key=2MjfRPVKKEiTpf0a&secret=1SMCT3sxw2SecfNf26uTVqDG5WAubAFd';
 
 // Make a GET request
 fetch(apiUrl)
