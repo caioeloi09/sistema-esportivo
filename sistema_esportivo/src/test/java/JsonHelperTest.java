@@ -10,6 +10,6 @@ public class JsonHelperTest {
         String path = "./src/test/resources/JsonFileExample.json"; 
         String result = JsonHelper.JsonFileToString(path); 
         System.out.println(result);
-        assertTrue("O resultado da leitura está incorreto\n" + System.getProperty("user.dir"), result.length() > 0);
+        assertTrue("O resultado da leitura está incorreto\n", result.length() > 0);
     }
 }
