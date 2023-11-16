@@ -26,13 +26,13 @@ public class MenuScreens {
                 StadiumHelper.printAllStadiums();
                 break;
             case 3:
-
+                GroupHelper.printAllgroups();
                 break;
             case 4:
                 MatchHelper.printAllMatches();
                 break;
             case 5:
-
+                RuleHelper.printAllrules();
                 break;
             default:
                 break;

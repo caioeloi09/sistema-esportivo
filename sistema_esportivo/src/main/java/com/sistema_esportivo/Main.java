@@ -4,8 +4,6 @@ package com.sistema_esportivo;
 
 public class Main{
 
-
-
     public static void main(String[] args){
 
         TeamHelper.loadAllTeams(); 
@@ -13,7 +11,7 @@ public class Main{
         StandingsHelper.loadStandings();
         StadiumHelper.loadAllStadiums();
         RuleHelper.loadAllrules();
-        RuleHelper.printAllrules();
+        GroupHelper.loadAllgroups();
         MenuScreens.initialMenu();
     }
 }
