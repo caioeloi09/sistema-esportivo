@@ -11,6 +11,8 @@ public class Main{
         TeamHelper.loadAllTeams(); 
         MatchHelper.loadAllMatches(); 
         StandingsHelper.loadStandings();
+        StadiumHelper.loadAllStadiums();
+        StadiumHelper.printAllStadiums();
         MenuScreens.initialMenu();
     }
 }

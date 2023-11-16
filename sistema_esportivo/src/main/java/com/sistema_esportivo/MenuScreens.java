@@ -23,7 +23,7 @@ public class MenuScreens {
                 TeamHelper.printAllTeams();
                 break;
             case 2:
-
+                StadiumHelper.printAllStadiums();
                 break;
             case 3:
 
